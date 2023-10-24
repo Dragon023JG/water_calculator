@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drinking Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/63565e4153.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <h1>
+          JavaScript<br />
+          <span
+            ><i class="fa-solid fa-glass-water fa-bounce"></i> Water Calculator
+            Drinking</span
+          >
+        </h1>
+        <div class="input-box">
+          <h1>Write Your Weight In Pounds</h1>
+          <input type="text" id="weight" />
+          <button onclick="calculateWater()">calculate</button>
+        </div>
+        <p id="result"></p>
+      </div>
+      <div class="copyright">
+        <p>Copyright © Dragon023JG <i class="fa-brands fa-d-and-d"></i></p>
+      </div>
+    </div>
+
+    <script>
+      function calculateWater() {
+        let userInput = document.getElementById("weight");
+        let result = document.getElementById("result");
+        // parse the weight input as a number
+        let weight = parseFloat(userInput.value);
+
+        if (isNaN(weight)) {
+          result.innerHTML = "Please enter a valid weight.";
+        } else {
+          let w = weight / 16;
+          let k = (weight * 0.453592) / 7;
+          var rCC = w.toFixed(1);
+          var rC = k.toFixed(1);
+          result.innerHTML = ` You should drink ${rCC} cups(8z) of water per day
+          or  ${rC} cups(250ml) per day `;
+        }
+      }
+    </script>
+  </body>
+</html>
